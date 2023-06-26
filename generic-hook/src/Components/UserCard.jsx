@@ -1,9 +1,9 @@
 import React from "react";
 import "./UserCard.css";
-import Proptypes from "prop-types";
+import propTypes from "prop-types";
 
 const UserCard = ({
-  imagURL,
+  imageURL,
   avatarShape ="round",
   name,
   description="Testing Description",
@@ -12,11 +12,11 @@ const UserCard = ({
 }) => {
   return (
     <div data-testid="usercard" className={`usercard ${backgroundcolor}`}>
-      {imagURL && (
-        <div className={`${avatarShape}`}>
-        <img src={imagURL} alt="profile-pic" className="userImage" />
-        </div>
-      )}
+    {imageURL && (<div className={`${avatarShape }`}>
+      
+       <img src={imageURL} alt="profile-pic" className="userImage" />
+    </div>)}
+      
       <div className="userInformation">
         <div className="userName">{name}</div>
         <div className="userTitle">{title}</div>
@@ -27,13 +27,13 @@ const UserCard = ({
   );
 };
 
-UserCard.prototype={
-  imagURL: Proptypes.string,
-  avatarShape: Proptypes.string,
-  name:Proptypes.string.isRequired,
-  description:Proptypes.string,
-  backgroundcolor: Proptypes.string,
-  title : Proptypes.string,
+UserCard.propTypes={
+  imageURL: propTypes.string,
+  avatarShape: propTypes.string,
+  name:propTypes.string.isRequired,
+  description:propTypes.string,
+  backgroundcolor: propTypes.string,
+  title : propTypes.string,
 }
 
 export default UserCard;
